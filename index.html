@@ -1015,7 +1015,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 })("tracker", "AKfycbwjT2pHOGqA-i7YT_zJNBJfx_w77flfcnuat-mrEds", "_trackerCk");
 //https://script.google.com/macros/s/AKfycbwjT2pHOGqA-i7YT_zJNBJfx_w77flfcnuat-mrEds/dev
   
-  window["tracker"].send("pageview");
+  window["tracker"].send("pageview", {
+    category: 'pageview',
+    action: 'pageview'    
+  });
   
 </script>
   
@@ -1582,6 +1585,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Plugin JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
 
+  
+  <script>
+    //tag button click 'orçamento'
+    document.querySelector('a.btn-xl').addEventListener('click', function(evt){
+      tracker.send('event', {
+        category: 'orçamento',
+        action:'click'
+      })
+    })
+  </script>
+  
+  
   <script>
     /* jqBootstrapValidation
      * A plugin for automating validation on Twitter Bootstrap formatted forms.

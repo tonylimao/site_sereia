@@ -1587,6 +1587,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   
   <script>
+    //TAGS HERE!!!
     //tag button click 'orçamento'
     document.querySelector('a.btn-xl').addEventListener('click', function(evt){
       tracker.send('event', {
@@ -1594,7 +1595,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         action:'click'
       })
     })
+    
+    //form visualization
+    var viewForm = false
+    var form = document.querySelector('section#contact')
+    function checkForm(evt) {    
+      if(viewForm === true){
+        form.removeEventListener('wheel', checkForm)
+      }else{
+        tracker.send('event',{
+            category: 'orçamento',
+            action: 'form visualized'
+        })
+      }
+      viewForm = true
+    }
+    form.addEventListener('wheel', checkForm)
   </script>
+  
+  
   
   
   <script>

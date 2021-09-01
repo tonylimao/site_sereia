@@ -89,7 +89,16 @@
     .btn-primary {
       color: white;
       background-color: #fed136;
-      border-color: #fed136;
+      border-color: #fed136;document.querySelectorAll('ul.social-buttons').forEach(function(el){
+    el.addEventListener('click', function(evt){
+        tracker.send('event', {
+           category: 'social-buttons',
+           action: 'click',
+           label: evt.target.getAttribute('class').split('-')[1]
+        })
+    })
+})
+
       font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
       text-transform: uppercase;
       font-weight: 700;
@@ -1620,6 +1629,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           label: evt.target.href.split("#")[1]
         })
     })
+    
+    //tag click on social media
+    document.querySelectorAll('ul.social-buttons').forEach(function(el){
+    el.addEventListener('click', function(evt){
+        tracker.send('event', {
+           category: 'social-buttons',
+           action: 'click',
+           label: evt.target.getAttribute('class').split('-')[1]
+           })
+        })
+    })
+
   </script>
   
   

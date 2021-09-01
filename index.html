@@ -1611,6 +1611,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       viewForm = true
     }
     form.addEventListener('wheel', checkForm)
+    
+    //tag click on superior menu
+    document.querySelector('div#bs-example-navbar-collapse-1').addEventListener('click', function(evt){
+        tracker.send('event',{
+          category: 'menu-superior',
+          action: 'click',
+          label: evt.target.href.split("#")[1]
+        })
+    })
   </script>
   
   

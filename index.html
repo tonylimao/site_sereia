@@ -967,11 +967,15 @@
   </script>
 
 <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+<script>
+  
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MMQ99BP');</script>
+})(window,document,'script','dataLayer','GTM-MMQ99BP');
+  
+ </script>
 <!-- End Google Tag Manager -->
   
 </head>
@@ -981,6 +985,39 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMQ99BP"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+    
+<script>
+  
+  (function(tn, tc, cn) {
+  window[tn] = window[tn] || {
+    status: "loading_code",
+    code: tc,
+    cookieName: cn,
+    queue: [],
+    send: function(a, d){
+      d = d || {};
+      window[tn].queue.push({
+        a: a,
+        d: Object.assign(d, {timestamp: Date.now()})
+      });
+    }
+  };
+
+  if(window[tn].status == "loading_code") {
+    window[tn].status = "waiting_script";
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://script.google.com/macros/s/" + tc + "/dev/library?tn=" + tn;
+    document.body.appendChild(s);
+    
+    
+  }
+})("tracker", "AKfycbwjT2pHOGqA-i7YT_zJNBJfx_w77flfcnuat-mrEds", "_trackerCk");
+//https://script.google.com/macros/s/AKfycbwjT2pHOGqA-i7YT_zJNBJfx_w77flfcnuat-mrEds/dev
+  
+  window["tracker"].send("pageview");
+  
+</script>
   
   <img src="https://tag-trainer.raccoon.ag/static/shared/balloon.svg" id="call-me-baby" />
   <!-- Navigation -->

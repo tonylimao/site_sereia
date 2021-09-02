@@ -1607,7 +1607,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
     //form visualization
     
-
+    (function(){
+      var viewForm = false
+      function checkForm() {
+        var scrolled = window.scrollY
+        if(viewForm == true){
+          window.removeEventListener('scroll', checkForm)
+        }else if(scrolled >= document.querySelector('form').getBoundingClientRect().y){
+          tracker.send('event', {
+            category: 'orçamento',
+            action: 'scrolled',
+            label: 'form visualized'
+          })
+        
+          console.log('viu')
+          viewForm = true
+      }
+    
+  }
+  window.addEventListener('scroll', checkForm)})()
+  
     
     //tag click on superior menu
     document.querySelector('div#bs-example-navbar-collapse-1').addEventListener('click', function(evt){

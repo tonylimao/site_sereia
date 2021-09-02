@@ -1631,15 +1631,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     })
     
     //tag click on social media
-    document.querySelectorAll('ul.social-buttons').forEach(function(el){
+    document.querySelectorAll('ul.social-buttons li').forEach(function(el){
     el.addEventListener('click', function(evt){
+        var i = evt.target.querySelector('i') || evt.target
         tracker.send('event', {
            category: 'social-buttons',
            action: 'click',
-           label: evt.target.getAttribute('class').split('-')[1]
+           label: i.getAttribute('class').split('-')[1]
            })
-        }, {capture: true})
-    })
+        })
+     })
+    
+    //batleo's code for social buttons
+    /*document.querySelectorAll('ul.social-buttons li').forEach(li => {
+  li.addEventListener('click', ev => {
+    var i = ev.target.querySelector('i') || ev.target;
+    console.log('social network:', i.getAttribute('class').split('-')[1]);
+  });
+})*/
 
   </script>
   

@@ -1612,7 +1612,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           var scrolled = window.scrollY
           if(viewForm == true){
             window.removeEventListener('scroll', checkForm)
-          }else if(scrolled >= document.querySelector('form').getBoundingClientRect().top){
+          }else if(scrolled >= document.querySelector('input#name').getBoundingClientRect().top){
             tracker.send('event', {
               category: 'orçamento',
               action: 'scrolled',

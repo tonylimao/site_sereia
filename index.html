@@ -1606,23 +1606,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     })
     
     //form visualization
+    var viewForm = false
+    function checkForm() {
+      var scrolled = window.scrollY
+      if(viewForm === false && scrolled >= document.querySelector('input#name').getBoundingClientRect().top){
+        tracker.send('event', {
+          category: 'orçamento',
+          action: 'scrolled',
+          label: 'form visualized'
+          })
+      viewForm = true
+      }
+    }
+    window.addEventListener('scroll', checkForm)
     
-        var viewForm = false
-        function checkForm() {
-          var scrolled = window.scrollY
-          if(viewForm == true){
-            window.removeEventListener('scroll', checkForm)
-          }else if(scrolled >= document.querySelector('input#name').getBoundingClientRect().top){
-            tracker.send('event', {
-              category: 'orçamento',
-              action: 'scrolled',
-              label: 'form visualized'
+    //form fulfill
+    (function(){
+    var percent = 0
+    document.querySelectorAll('input').forEach(el => {
+        el.ver = false
+        el.addEventListener('change', evt => {
+            if(el.ver == false){
+                tracker.send('event', {
+                    category: 'orçamento',
+                    action: 'fulfill',
+                    label: evt.target.getAttribute('id'),
+                    value: encodeURI((percent += 25) + '%')
+                    })
+                el.ver = true
+                }
             })
-            viewForm = true
-          }
+        })
+
+    var textAreaVer = false
+    document.querySelector('textarea').addEventListener('change', evt => {
+        if(textAreaVer === false){
+            tracker.send('event', {
+                category: 'orçamento',
+                action: 'fulfill',
+                label: evt.target.getAttribute('id'),
+                value: encodeURI((percent += 25) + '%')
+                })
+        textAreaVer = true
         }
-  window.addEventListener('scroll', checkForm)
-  
+      })
+    })()
     
     //tag click on superior menu
     document.querySelector('div#bs-example-navbar-collapse-1').addEventListener('click', function(evt){

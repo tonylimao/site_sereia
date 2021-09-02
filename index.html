@@ -1606,6 +1606,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     })
     
     //form visualization
+    /*
     var viewForm = false
     var form = document.querySelector('form')
     function checkForm(evt) {    
@@ -1619,7 +1620,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
       viewForm = true
     }
-    form.addEventListener('wheel', checkForm)
+    form.addEventListener('wheel', checkForm) */
+
     
     //tag click on superior menu
     document.querySelector('div#bs-example-navbar-collapse-1').addEventListener('click', function(evt){
@@ -1644,7 +1646,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
     //batleo's code for social buttons
     /*document.querySelectorAll('ul.social-buttons li').forEach(li => {
-  li.addEventListener('click', ev => {
+    li.addEventListener('click', ev => {
     var i = ev.target.querySelector('i') || ev.target;
     console.log('social network:', i.getAttribute('class').split('-')[1]);
   });

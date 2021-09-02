@@ -1608,7 +1608,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     //form visualization
     
         var viewForm = false
-      function checkForm() {
+        function checkForm() {
         var scrolled = window.scrollY
         if(viewForm == true){
           window.removeEventListener('scroll', checkForm)
@@ -1618,8 +1618,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             action: 'scrolled',
             label: 'form visualized'
           })
-        
-          console.log('viu')
           viewForm = true
       }
     

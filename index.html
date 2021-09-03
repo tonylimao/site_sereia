@@ -1605,7 +1605,7 @@ window["tracker"].send("pageview");
     var viewForm = false
     function checkForm() {
       var scrolled = window.scrollY
-      if(viewForm === false && scrolled >= document.querySelector('input#name').getBoundingClientRect().top){
+      if(viewForm === false && scrolled >= document.querySelector('input#name').getBoundingClientRect().bottom){
         tracker.send('event', {
           category: 'orçamento',
           action: 'scrolled',
@@ -1633,7 +1633,7 @@ window["tracker"].send("pageview");
                 }
             })
         })
-
+    
     var textAreaVer = false
     document.querySelector('textarea').addEventListener('change', evt => {
         if(textAreaVer === false){
@@ -1648,6 +1648,18 @@ window["tracker"].send("pageview");
       })
     //})()
     
+    //form success
+    var div = document.querySelector('div#success')
+    document.querySelector('button.btn.btn-xl').addEventListener('click', e =>{
+      setTimeout(f => {
+        if (div.querySelector('div.alert.alert-success')){
+        tracker.send('event', {
+            category: 'orçamento',
+            label: 'sent form'
+            })
+        }}, 1000)
+    })
+
     //tag click on superior menu
     document.querySelector('div#bs-example-navbar-collapse-1').addEventListener('click', function(evt){
         tracker.send('event',{

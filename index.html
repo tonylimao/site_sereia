@@ -2751,6 +2751,11 @@ window["tracker"].send("pageview");
     window.setTimeout(function() {
       var element = document.getElementById('call-me-baby');
       element.style.right = '20px';
+      tracker.send('popup', {
+        category: 'callme',
+        action: 'saw',
+        label: 'popup shown'
+      })
     }, Math.random() * 12000 + 5000);
   </script>
 

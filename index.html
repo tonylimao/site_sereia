@@ -1619,7 +1619,20 @@ window["tracker"].send("pageview");
     //form fulfill
     //(function(){
     var percent = 0
-    document.querySelectorAll('input').forEach(el => {
+
+    document.querySelector('form').addEventListener('change', e => {
+    e.ver = false
+        if(e.ver == false){
+            tracker.send('event', {
+                category: 'orçamento',
+                action: 'fill',
+                label: e.target.getAttribute('id'),
+                value: encodeURI((percent += 25.00) + '%')
+                })
+            e.ver = true
+            }
+        })
+    /*document.querySelectorAll('input').forEach(el => {
         el.ver = false
         el.addEventListener('change', evt => {
             if(el.ver == false){
@@ -1645,7 +1658,7 @@ window["tracker"].send("pageview");
                 })
         textAreaVer = true
         }
-      })
+      })*/
     //})()
     
     //form success

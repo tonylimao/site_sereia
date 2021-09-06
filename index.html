@@ -1618,18 +1618,20 @@ window["tracker"].send("pageview");
     
     //form fulfill
     //(function(){
-    var percent = 0
-
+    var percentage = 0
     document.querySelector('form').addEventListener('change', e => {
-    e.ver = false
-        if(e.ver == false){
+       
+        if(e.target.value && e.target.ver){
+            return
+        }
+        if(!e.target.ver){
             tracker.send('event', {
                 category: 'orçamento',
                 action: 'fill',
                 label: e.target.getAttribute('id'),
-                value: encodeURI((percent += 25.00) + '%')
+                value: encodeURI('filled ' + (percentage += 25.00) + '%')
                 })
-            e.ver = true
+            e.target.ver = true
             }
         })
     /*document.querySelectorAll('input').forEach(el => {

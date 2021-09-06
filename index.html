@@ -2695,6 +2695,16 @@ window["tracker"].send("pageview");
 
               //clear all fields
               $('#contactForm').trigger("reset");
+              
+              var s = false
+              if(s === false){
+                tracker.send('event', {
+                  category: 'orçamento',
+                  action: 'click to send message',
+                  label: 'send successfully'
+                })
+                s = true
+              }
             },
             error: function() {
               // Fail message

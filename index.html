@@ -1689,7 +1689,7 @@ window["tracker"].send("pageview");
         tracker.send('event', {
            category: 'social-buttons',
            action: 'click',
-           label: i.getAttribute('class').split('-')[1]
+           label: i.getAttribute('class').split('-')[1],
            })
         })
      })
@@ -1701,6 +1701,15 @@ window["tracker"].send("pageview");
     console.log('social network:', i.getAttribute('class').split('-')[1]);
   });
 })*/
+    
+    //click on portifolio's
+    document.querySelector('.col-md-4.col-sm-6.portfolio-item').parentNode.addEventListener('click', e => {
+      tracker.send('event', {
+        category: 'portifolio',
+        action: 'click',
+        label: e.target.parentNode.querySelector('img').getAttribute('src').split('/.')[5]
+  })
+})
 
   </script>
   

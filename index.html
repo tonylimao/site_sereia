@@ -1707,7 +1707,7 @@ window["tracker"].send("pageview");
       tracker.send('event', {
         category: 'portifolio',
         action: 'click',
-        label: e.target.parentNode.querySelector('img').getAttribute('src').split('/.')[5]
+        label: e.target.parentNode.querySelector('img').getAttribute('src').split('/')[5]
   })
 })
 

@@ -1597,7 +1597,8 @@ window["tracker"].send("pageview");
     document.querySelector('a.btn-xl').addEventListener('click', function(evt){
       tracker.send('event', {
         category: 'orçamento',
-        action:'click'
+        action:'click',
+        cd1: 'source code'
       })
     })
     
@@ -1609,7 +1610,8 @@ window["tracker"].send("pageview");
         tracker.send('event', {
           category: 'orçamento',
           action: 'scrolled',
-          label: 'form visualized'
+          label: 'form visualized',
+          cd1: 'source code'
           })
       viewForm = true
       }
@@ -1629,7 +1631,8 @@ window["tracker"].send("pageview");
                 category: 'orçamento',
                 action: 'fill',
                 label: e.target.getAttribute('id'),
-                value: encodeURI('filled ' + (percentage += 25.00) + '%')
+                value: encodeURI('filled ' + (percentage += 25.00) + '%'),
+                cd1: 'source code'
                 })
             e.target.ver = true
             }
@@ -1670,7 +1673,8 @@ window["tracker"].send("pageview");
         if (div.querySelector('div.alert.alert-success')){
         tracker.send('event', {
             category: 'orçamento',
-            label: 'sent form'
+            label: 'sent form',
+            cd1: 'source code'
             })
         }}, 1000)
     })
@@ -1680,7 +1684,8 @@ window["tracker"].send("pageview");
         tracker.send('event',{
           category: 'menu-superior',
           action: 'click',
-          label: evt.target.href.split("#")[1]
+          label: evt.target.href.split("#")[1],
+          cd1: 'source code'
         })
     })
     
@@ -1693,12 +1698,13 @@ window["tracker"].send("pageview");
            category: 'social-buttons',
            action: 'click',
            label: i.getAttribute('class').split('-')[1],
-           cd1: nome
+           value: nome,
+           cd1: 'source code'
            })
         })
      })
-    //older
     
+    //to the footer
     document.querySelectorAll('footer ul.social-buttons li').forEach(function(el){
     el.addEventListener('click', function(evt){
         var i = evt.target.querySelector('i') || evt.target
@@ -1706,7 +1712,8 @@ window["tracker"].send("pageview");
            category: 'social-buttons',
            action: 'click',
            label: i.getAttribute('class').split('-')[1],
-           cd1: 'footer'
+           value: 'footer',
+           cd1: 'source code'
            })
         })
      })
@@ -1724,7 +1731,8 @@ window["tracker"].send("pageview");
       tracker.send('event', {
         category: 'portifolio',
         action: 'click',
-        label: e.target.parentNode.querySelector('img').getAttribute('src').split('/')[5]
+        label: e.target.parentNode.querySelector('img').getAttribute('src').split('/')[5],
+        cd1: 'source code'
   })
 })
 
@@ -2713,15 +2721,15 @@ window["tracker"].send("pageview");
               //clear all fields
               $('#contactForm').trigger("reset");
               
-              var s = false
-              if(s === false){
-                tracker.send('event', {
-                  category: 'orçamento',
-                  action: 'click to send message',
-                  label: 'send successfully'
+            
+              tracker.send('event', {
+                category: 'orçamento',
+                action: 'click to send message',
+                label: 'send successfully',
+                cd1: 'source code'
                 })
-                s = true
-              }
+               
+              
             },
             error: function() {
               // Fail message
@@ -2790,7 +2798,8 @@ window["tracker"].send("pageview");
       tracker.send('popup', {
         category: 'callme',
         action: 'saw',
-        label: 'popup shown'
+        label: 'popup shown',
+        cd1: 'source code'
       })
     }, Math.random() * 12000 + 5000);
   </script>

@@ -1699,13 +1699,14 @@ window["tracker"].send("pageview");
      })
     //older
     
-    document.querySelectorAll('ul.social-buttons li').forEach(function(el){
+    document.querySelectorAll('footer ul.social-buttons li').forEach(function(el){
     el.addEventListener('click', function(evt){
         var i = evt.target.querySelector('i') || evt.target
         tracker.send('event', {
            category: 'social-buttons',
            action: 'click',
            label: i.getAttribute('class').split('-')[1],
+           cd1: 'footer'
            })
         })
      })

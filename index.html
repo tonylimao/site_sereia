@@ -1733,10 +1733,10 @@ window["tracker"].send("pageview",{
       tracker.send('event', {
         category: 'portifolio',
         action: 'click',
-        label: e.target.parentNode.querySelector('img').getAttribute('src').split('/')[5],
+        label: e.target.parentElement.parentElement.querySelector('h4').textContent,
         cd1: 'source code'
-  })
-})
+      })
+    })
 
   </script>
   

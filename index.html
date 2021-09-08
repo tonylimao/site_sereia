@@ -1685,6 +1685,20 @@ window["tracker"].send("pageview");
     })
     
     //tag click on social media
+    document.querySelectorAll('div.team-member').forEach(function(el){
+    el.addEventListener('click', function(evt){
+        var i = evt.target.querySelector('i') || evt.target
+        var nome = el.querySelector('h4').textContent
+        tracker.send('event', {
+           category: 'social-buttons',
+           action: 'click',
+           label: i.getAttribute('class').split('-')[1],
+           cd1: nome
+           })
+        })
+     })
+    //older
+    
     document.querySelectorAll('ul.social-buttons li').forEach(function(el){
     el.addEventListener('click', function(evt){
         var i = evt.target.querySelector('i') || evt.target

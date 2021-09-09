@@ -1605,6 +1605,29 @@ window["tracker"].send("pageview",{
     })
     
     //form visualization
+    const form = document.querySelector('form')
+    const options = {
+        root: null,
+        threshold: 0
+    }
+    const observer =  new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+        if(!entry.isIntersecting){
+            return
+        }
+        tracker.send('event', {
+            category: 'orçamento',
+            action: 'scrolled inter',
+            label: 'form visualized'
+        })
+        console.log(entry.target)
+        observer.unobserve(entry.target)
+
+        })
+    }, options)
+    observer.observe(form)
+    
+    /*older
     var viewForm = false
     function checkForm() {
       var scrolled = window.scrollY
@@ -1618,7 +1641,7 @@ window["tracker"].send("pageview",{
       viewForm = true
       }
     }
-    window.addEventListener('scroll', checkForm)
+    window.addEventListener('scroll', checkForm)*/
     
     //form fulfill
     //(function(){

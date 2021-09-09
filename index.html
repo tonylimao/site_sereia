@@ -1605,6 +1605,8 @@ window["tracker"].send("pageview",{
     })
     
     //form visualization
+    observer.observe(form) 
+    
     /*
     const form = document.querySelector('form')
     const options = {
@@ -1761,6 +1763,33 @@ window["tracker"].send("pageview",{
         cd1: 'source code'
       })
     })
+    //view popup
+    observer.observe(popup)
+    
+    //observer
+    const popup = document.querySelector('img#call-me-baby')
+    const form = document.querySelector('form')
+    const options = {
+        root: null,
+        threshold: 0
+    }
+    const observer =  new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+        if(!entry.isIntersecting){
+            return
+        }
+        tracker.send('event', {
+            category: 'observer',
+            action: 'pageview',
+            label: entry.target.getAttribute('id')
+        })
+        console.log(entry.target)
+        observer.unobserve(entry.target)
+        })
+    }, options)
+    
+    
+
 
   </script>
   
@@ -2821,12 +2850,7 @@ window["tracker"].send("pageview",{
     window.setTimeout(function() {
       var element = document.getElementById('call-me-baby');
       element.style.right = '20px';
-      tracker.send('popup', {
-        category: 'callme',
-        action: 'saw',
-        label: 'popup shown',
-        cd1: 'source code'
-      })
+      
     }, Math.random() * 12000 + 5000);
   </script>
 

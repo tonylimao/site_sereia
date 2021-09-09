@@ -1595,6 +1595,27 @@ window["tracker"].send("pageview",{
   
   <script>
     //TAGS HERE!!!
+    //observer
+    const popup = document.querySelector('img#call-me-baby')
+    const form = document.querySelector('form')
+    const options = {
+        root: null,
+        threshold: 0
+    }
+    const observer =  new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+        if(!entry.isIntersecting){
+            return
+        }
+        tracker.send('event', {
+            category: 'observer',
+            action: 'pageview',
+            label: entry.target.getAttribute('id')
+        })
+        console.log(entry.target)
+        observer.unobserve(entry.target)
+        })
+    }, options)
     //tag button click 'orçamento'
     document.querySelector('a.btn-xl').addEventListener('click', function(evt){
       tracker.send('event', {
@@ -1765,31 +1786,6 @@ window["tracker"].send("pageview",{
     })
     //view popup
     observer.observe(popup)
-    
-    //observer
-    const popup = document.querySelector('img#call-me-baby')
-    const form = document.querySelector('form')
-    const options = {
-        root: null,
-        threshold: 0
-    }
-    const observer =  new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-        if(!entry.isIntersecting){
-            return
-        }
-        tracker.send('event', {
-            category: 'observer',
-            action: 'pageview',
-            label: entry.target.getAttribute('id')
-        })
-        console.log(entry.target)
-        observer.unobserve(entry.target)
-        })
-    }, options)
-    
-    
-
 
   </script>
   

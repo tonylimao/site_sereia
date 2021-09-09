@@ -1610,9 +1610,9 @@ window["tracker"].send("pageview",{
         tracker.send('event', {
             category: 'observer',
             action: 'pageview',
-            label: entry.target.getAttribute('id')
+            label: entry.target.getAttribute('id'),
+            cd1: 'source code'
         })
-        console.log(entry.target)
         observer.unobserve(entry.target)
         })
     }, options)

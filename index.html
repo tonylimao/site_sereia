@@ -1719,13 +1719,18 @@ window["tracker"].send("pageview",{
     var div = document.querySelector('div#success')
     document.querySelector('button.btn.btn-xl').addEventListener('click', e =>{
       setTimeout(f => {
-        if (div.querySelector('div.alert.alert-success')){
+        if (div.ver){
+        return
+        }
+        if (div.querySelector('div.alert.alert-success') && !div.ver){
         tracker.send('event', {
             category: 'orçamento',
             label: 'sent form',
             cd1: 'source code'
             })
-        }}, 1000)
+        }
+      div.ver = true
+      }, 1000)
     })
 
     //tag click on superior menu
